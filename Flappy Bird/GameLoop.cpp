@@ -27,6 +27,8 @@ GameLoop::GameLoop() {
 	sf::FloatRect readySpriteBounds = readySprite.getLocalBounds();
 	readySprite.setOrigin(readySpriteBounds.left + readySpriteBounds.width / 2, readySpriteBounds.top + readySpriteBounds.height / 2);
 	readySprite.setPosition(144, 200);
+
+	score = 0;
 }
 
 // Game Loop
@@ -52,6 +54,7 @@ void GameLoop::processEvents() {
 		if (event.type == sf::Event::KeyPressed || event.type == sf::Event::MouseButtonPressed) {
 			if (event.key.code == sf::Keyboard::Space || event.key.code == sf::Mouse::Left) {
 				if (gameOver) {
+					score = 0;
 					gameOver = false;
 					birdy->reset();
 					pipe->reset();
