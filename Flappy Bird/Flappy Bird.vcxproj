@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="Base.h" />
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Pipes.h" />
   </ItemGroup>

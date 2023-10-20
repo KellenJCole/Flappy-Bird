@@ -44,5 +44,8 @@
     <ClInclude Include="Pipes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionDetector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
