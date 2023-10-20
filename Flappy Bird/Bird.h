@@ -21,4 +21,8 @@ private:
 	sf::Time animClock;
 
 	float rotationSpeed;
+
+	// sound
+	sf::SoundBuffer buffer;
+	sf::Sound flap;
 };
