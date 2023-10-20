@@ -13,4 +13,8 @@ private:
 
 	sf::RenderWindow window;
 
+	sf::Texture bgTexDay;
+	sf::Texture bgTexNight;
+	
+	sf::Sprite bgSprite;
 };
