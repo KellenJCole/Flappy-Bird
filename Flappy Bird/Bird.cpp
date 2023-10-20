@@ -55,6 +55,7 @@ void Bird::draw() {
 
 void Bird::flap() {
 	velocity.y = -400.f;
+	flapSound.play();
 }
 
 void Bird::updateAnimation(sf::Time delta) {
