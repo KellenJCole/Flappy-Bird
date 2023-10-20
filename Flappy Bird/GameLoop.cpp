@@ -21,7 +21,13 @@ void GameLoop::run() {
 
 // Process user input
 void GameLoop::processEvents() {
+	sf::Event event;
 
+	while (window.pollEvent(event)) {
+		if (event.type == sf::Event::Closed) {
+			window.close();
+		}
+	}
 }
 
 // Update game objects
@@ -31,5 +37,7 @@ void GameLoop::update(sf::Time delta) {
 
 // Draw to window
 void GameLoop::render() {
+	window.clear();
 
+	window.display();
 }
