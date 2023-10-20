@@ -31,6 +31,8 @@ Bird::Bird(sf::RenderWindow* w) {
 	velocity.y = 250.f;
 
 	animClock = sf::Time::Zero;
+
+	rotationSpeed = 350.f;
 }
 
 void Bird::update(sf::Time delta) {
@@ -39,7 +41,7 @@ void Bird::update(sf::Time delta) {
 	position.y += deltaDistance;
 	birdSprite.setPosition(position);
 	
-	velocity.y += .06f;
+	velocity.y += .1f;
 
 	updateAnimation(delta);
 }
@@ -49,13 +51,14 @@ void Bird::draw() {
 }
 
 void Bird::flap() {
-	velocity.y = -250.f;
+	velocity.y = -400.f;
 }
 
 void Bird::updateAnimation(sf::Time delta) {
+	float deltaRotation;
 	animClock += delta;
 	if (velocity.y < 0) { // If bird is rising, flap wings
-		if (animClock > sf::seconds(1) / 60.f) {
+		if (animClock > sf::seconds(1) / 20.f) {
 			animClock = sf::Time::Zero;
 			animIndex -= 1;
 			birdSprite.setTexture(birdTex[birdSet][animIndex]);
@@ -63,9 +66,30 @@ void Bird::updateAnimation(sf::Time delta) {
 				animIndex = 3;
 			}
 		}
+		deltaRotation = rotationSpeed * delta.asSeconds();
+		float currentRotation = birdSprite.getRotation();
+		if (currentRotation > 315 || currentRotation < 45) {
+			currentRotation -= deltaRotation;
+			if (currentRotation < 315 && currentRotation > 180) {
+				currentRotation = 315.001;
+			}
+
+			birdSprite.setRotation(currentRotation);
+		}
+
 	}
 	else { // If bird is falling, set wings to glide
 		animIndex = 2;
 		birdSprite.setTexture(birdTex[birdSet][animIndex]);
+
+		deltaRotation = -rotationSpeed * delta.asSeconds();
+		float currentRotation = birdSprite.getRotation();
+		if (currentRotation > 315 || currentRotation < 45) {
+			currentRotation -= deltaRotation;
+			if (currentRotation > 45 && currentRotation < 180) {
+				currentRotation = 44.999;
+			}
+			birdSprite.setRotation(currentRotation);
+		}
 	}
 }
