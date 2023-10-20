@@ -9,6 +9,7 @@ public:
 	void flap();
 	void draw();
 	sf::RectangleShape getCollision();
+	void reset();
 private:
 	void updateAnimation(sf::Time delta);
 	int birdSet, animIndex;
