@@ -7,6 +7,8 @@ GameLoop::GameLoop() {
 	bgTexDay.loadFromFile("Resources/background-day.png");
 	bgTexNight.loadFromFile("Resources/background-night.png");
 
+	rand() % 2 == 0 ? bgSprite.setTexture(bgTexDay) : bgSprite.setTexture(bgTexNight);
+
 	window.create(sf::VideoMode(288, 512), "Flappy Bird");
 
 	window.display();
