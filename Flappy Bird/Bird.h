@@ -19,4 +19,6 @@ private:
 	sf::Sprite birdSprite;
 
 	sf::Time animClock;
+
+	float rotationSpeed;
 };
