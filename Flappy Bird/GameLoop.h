@@ -38,7 +38,7 @@ private:
 
 	CollisionDetector cd;
 
-	bool gameOver;
+	bool gameOver, gameOverScreen;
 
 	int score;
 	sf::Time timeSinceScored;

@@ -20,13 +20,22 @@ GameLoop::GameLoop() {
 	baseCollisionBox.setSize(sf::Vector2f(288, 112));
 	baseCollisionBox.setPosition(0, 400);
 	gameOver = true;
+	gameOverScreen = false;
 
 	readyTex.loadFromFile("Resources/message.png");
 	readySprite.setTexture(readyTex);
 
+	gameOverTex.loadFromFile("Resources/gameover.png");
+	gameOverSprite.setTexture(gameOverTex);
+
+
 	sf::FloatRect readySpriteBounds = readySprite.getLocalBounds();
 	readySprite.setOrigin(readySpriteBounds.left + readySpriteBounds.width / 2, readySpriteBounds.top + readySpriteBounds.height / 2);
 	readySprite.setPosition(144, 200);
+
+	sf::FloatRect gameOverSpriteBounds = gameOverSprite.getLocalBounds();
+	gameOverSprite.setOrigin(gameOverSpriteBounds.left + gameOverSpriteBounds.width / 2, gameOverSpriteBounds.top + gameOverSpriteBounds.height / 2);
+	gameOverSprite.setPosition(144, 200);
 
 	score = 0;
 
@@ -61,9 +70,12 @@ void GameLoop::processEvents() {
 		}
 		if (event.type == sf::Event::KeyPressed || event.type == sf::Event::MouseButtonPressed) {
 			if (event.key.code == sf::Keyboard::Space || event.key.code == sf::Mouse::Left) {
-				if (gameOver) {
+				if (gameOver && !gameOverScreen) {
 					score = 0;
 					gameOver = false;
+				}
+				else if (gameOverScreen) {
+					gameOverScreen = false;
 					birdy->reset();
 					pipe->reset();
 				}
@@ -89,12 +101,14 @@ void GameLoop::update(sf::Time delta) {
 		if (cd.isColliding(birdy->getCollision(), baseCollisionBox)) { // If bird hits ground
 			collisionSound.play();
 			gameOver = true;
+			gameOverScreen = true;
 		}
 
 		for (auto a : pipe->getCollision()) { // If bird hits a pipe
 			if (cd.isColliding(birdy->getCollision(), a)) {
 				collisionSound.play();
 				gameOver = true;
+				gameOverScreen = true;
 			}
 		}
 
@@ -119,8 +133,11 @@ void GameLoop::render() {
 	pipe->draw();
 	ground->draw();
 
-	if (gameOver) {
+	if (gameOver && !gameOverScreen) {
 		window.draw(readySprite);
+	}
+	else if (gameOverScreen) {
+		window.draw(gameOverSprite);
 	}
 
 
