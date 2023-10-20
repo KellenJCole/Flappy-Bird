@@ -2,6 +2,9 @@
 
 // Constructor
 GameLoop::GameLoop() {
+	bgTexDay.loadFromFile("Resources/background-day.png");
+	bgTexNight.loadFromFile("Resources/background-night.png");
+
 	window.create(sf::VideoMode(288, 512), "Flappy Bird");
 
 	window.display();
