@@ -25,4 +25,7 @@ private:
 	// sound
 	sf::SoundBuffer buffer;
 	sf::Sound flapSound;
+
+	// collision
+	sf::RectangleShape birdCollBox;
 };
