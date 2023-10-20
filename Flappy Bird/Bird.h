@@ -24,5 +24,5 @@ private:
 
 	// sound
 	sf::SoundBuffer buffer;
-	sf::Sound flap;
+	sf::Sound flapSound;
 };

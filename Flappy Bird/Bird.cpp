@@ -33,6 +33,9 @@ Bird::Bird(sf::RenderWindow* w) {
 	animClock = sf::Time::Zero;
 
 	rotationSpeed = 350.f;
+
+	buffer.loadFromFile("Resources/wing.wav");
+	flapSound.setBuffer(buffer);
 }
 
 void Bird::update(sf::Time delta) {
