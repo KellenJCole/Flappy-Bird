@@ -96,3 +96,12 @@ void Pipes::updatePipes(sf::Time dt) {
 std::vector<sf::RectangleShape> Pipes::getCollision() {
 	return collisionBoxes;
 }
+
+void Pipes::reset() {
+	for (int i = 0; i < 8; i++) {
+		pipes[i] = NULL;
+	}
+
+	collisionBoxes.clear();
+	pipeSpawnTimer = sf::Time::Zero;
+}
