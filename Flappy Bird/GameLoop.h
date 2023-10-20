@@ -2,6 +2,7 @@
 #include <SFML/Audio.hpp>
 #include "Base.h"
 #include "Bird.h"
+#include "Pipes.h"
 
 class GameLoop {
 public:
@@ -21,4 +22,5 @@ private:
 
 	Base* ground;
 	Bird* birdy;
+	Pipes* pipe;
 };
