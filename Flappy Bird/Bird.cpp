@@ -104,3 +104,9 @@ void Bird::updateAnimation(sf::Time delta) {
 sf::RectangleShape Bird::getCollision() {
 	return birdCollBox;
 }
+
+void Bird::reset() {
+	birdSprite.setPosition(80, 200);
+	birdSprite.setRotation(0);
+	birdCollBox.setPosition(birdSprite.getPosition());
+}
