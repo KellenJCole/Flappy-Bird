@@ -20,4 +20,16 @@ Pipes::Pipes(sf::RenderWindow* w) {
 	pipeDownSprite.setOrigin(pipeDownBounds.left + pipeDownBounds.width / 2, pipeDownBounds.top + pipeDownBounds.height / 2);
 
 	pipeSpawnTimer = sf::Time::Zero;
+
+	for (int i = 0; i < 8; i++) {
+		pipes[i] == NULL;
+	}
+}
+
+void Pipes::draw() {
+	for (int i = 0; i < 8; i++) {
+		if (pipes[i] != NULL) {
+			gameWindow->draw(*pipes[i]);
+		}
+	}
 }
