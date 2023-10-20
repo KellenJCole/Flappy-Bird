@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="Base.cpp" />
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pipes.cpp" />
