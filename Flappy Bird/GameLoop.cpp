@@ -50,6 +50,7 @@ void GameLoop::processEvents() {
 void GameLoop::update(sf::Time delta) {
 	ground->update(delta);
 	birdy->update(delta);
+	pipe->updatePipes(delta);
 }
 
 // Draw to window
@@ -58,7 +59,9 @@ void GameLoop::render() {
 
 	window.draw(bgSprite);
 	birdy->draw();
+	pipe->draw();
 	ground->draw();
+
 
 	window.display();
 }
