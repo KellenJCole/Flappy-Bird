@@ -9,7 +9,7 @@ public:
 	void flap();
 	void draw();
 private:
-	void updateAnimation();
+	void updateAnimation(sf::Time delta);
 	int birdSet, animIndex;
 
 	sf::RenderWindow* gameWindow;
