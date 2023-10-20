@@ -14,6 +14,7 @@ GameLoop::GameLoop() {
 	window.display();
 
 	ground = new Base(&window);
+	birdy = new Bird(&window);
 }
 
 // Game Loop
@@ -49,6 +50,7 @@ void GameLoop::render() {
 	window.clear();
 
 	window.draw(bgSprite);
+	birdy->draw();
 	ground->draw();
 
 	window.display();
