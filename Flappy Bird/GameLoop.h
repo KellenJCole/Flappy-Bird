@@ -18,8 +18,10 @@ private:
 
 	sf::Texture bgTexDay;
 	sf::Texture bgTexNight;
+	sf::Texture readyTex;
 	
 	sf::Sprite bgSprite;
+	sf::Sprite readySprite;
 
 	Base* ground;
 	Bird* birdy;
