@@ -33,3 +33,25 @@ void Pipes::draw() {
 		}
 	}
 }
+
+void Pipes::updatePipes(sf::Time dt) {
+	pipeSpawnTimer += dt;
+
+	if (dt > sf::milliseconds(500)) { // Spawn pipe
+		pipeSpawnTimer = sf::Time::Zero;
+
+		for (int i = 0; i < 8; i += 2) {
+			if (pipes[i] == NULL) { // Found place to spawn pipe
+				pipes[i] = new sf::Sprite(pipeUpSprite);
+				pipes[i + 1] = new sf::Sprite(pipeDownSprite);
+
+				int pipeSpawnX = 400;
+				int pipeUpSpawnY = 200 + rand() % 100;
+				int pipeDownSpawnY = pipeUpSpawnY - 150;
+
+				pipes[i]->setPosition(pipeSpawnX, pipeUpSpawnY);
+				pipes[i + 1]->setPosition(pipeSpawnX, pipeDownSpawnY);
+			}
+		}
+	}
+}
