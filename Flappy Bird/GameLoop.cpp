@@ -59,19 +59,21 @@ void GameLoop::processEvents() {
 
 // Update game objects
 void GameLoop::update(sf::Time delta) {
-	ground->update(delta);
-	birdy->update(delta);
-	pipe->updatePipes(delta);
+	if (!gameOver) {
+		ground->update(delta);
+		birdy->update(delta);
+		pipe->updatePipes(delta);
 
-	// Check for collisions
-	
-	if (cd.isColliding(birdy->getCollision(), baseCollisionBox)) { // If bird hits ground
-	
-	}
+		// Check for collisions
 
-	for (auto a : pipe->getCollision()) { // If bird hits a pipe
-		if (cd.isColliding(birdy->getCollision(), a)) {
+		if (cd.isColliding(birdy->getCollision(), baseCollisionBox)) { // If bird hits ground
 
+		}
+
+		for (auto a : pipe->getCollision()) { // If bird hits a pipe
+			if (cd.isColliding(birdy->getCollision(), a)) {
+
+			}
 		}
 	}
 }
