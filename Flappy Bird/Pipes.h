@@ -17,4 +17,5 @@ private:
 	sf::Time pipeSpawnTimer;
 	sf::Sprite* pipes[8];
 	std::vector<sf::RectangleShape> collisionBoxes;
+	std::vector<sf::RectangleShape> pointCollisionBoxes;
 };
