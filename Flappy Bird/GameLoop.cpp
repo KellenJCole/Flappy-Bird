@@ -2,6 +2,8 @@
 
 // Constructor
 GameLoop::GameLoop() {
+	srand(time(NULL));
+
 	bgTexDay.loadFromFile("Resources/background-day.png");
 	bgTexNight.loadFromFile("Resources/background-night.png");
 
