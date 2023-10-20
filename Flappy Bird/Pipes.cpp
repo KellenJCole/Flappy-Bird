@@ -27,6 +27,7 @@ Pipes::Pipes(sf::RenderWindow* w) {
 	}
 
 	collisionBoxes.resize(8);
+	pointCollisionBoxes.resize(4);
 }
 
 void Pipes::draw() {
@@ -69,6 +70,11 @@ void Pipes::updatePipes(sf::Time dt) {
 				int pipeUpSpawnY = 300 + rand() % 250;
 				int pipeDownSpawnY = pipeUpSpawnY - 450;
 
+				pointCollisionBoxes[i / 2].setSize(sf::Vector2f(pipes[i]->getLocalBounds().width / 2, 130));
+				sf::FloatRect pointCollisionRect = pointCollisionBoxes[i / 2].getLocalBounds();
+				pointCollisionBoxes[i / 2].setOrigin(pointCollisionRect.left + pointCollisionRect.width / 2, pointCollisionRect.top + pointCollisionRect.height / 2);
+				pointCollisionBoxes[i / 2].setPosition(sf::Vector2f(pipeSpawnX, pipeDownSpawnY - 225));
+
 				pipes[i]->setPosition(pipeSpawnX, pipeUpSpawnY);
 				pipes[i + 1]->setPosition(pipeSpawnX, pipeDownSpawnY);
 
@@ -89,6 +95,9 @@ void Pipes::updatePipes(sf::Time dt) {
 			pipePosition.x += distanceToMove;
 			pipes[i]->setPosition(pipePosition);
 			collisionBoxes[i].setPosition(pipePosition);
+			if (i % 2 == 0) {
+				pointCollisionBoxes[i / 2].setPosition(pipePosition.x, pipePosition.y - 225);
+			}
 		}
 	}
 }
@@ -102,7 +111,9 @@ void Pipes::reset() {
 		pipes[i] = NULL;
 	}
 
-	collisionBoxes.clear();
 	pipeSpawnTimer = sf::Time::Zero;
+	collisionBoxes.clear();
 	collisionBoxes.resize(8);
+	pointCollisionBoxes.clear();
+	pointCollisionBoxes.resize(4);
 }
