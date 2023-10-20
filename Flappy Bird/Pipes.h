@@ -9,6 +9,7 @@ public:
 	void updatePipes(sf::Time dt);
 	void draw();
 	std::vector<sf::RectangleShape> getCollision();
+	void reset();
 private:
 	sf::RenderWindow* gameWindow;
 	sf::Texture pipeUpTex, pipeDownTex;
