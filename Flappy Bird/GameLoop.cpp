@@ -54,6 +54,7 @@ void GameLoop::processEvents() {
 				if (gameOver) {
 					gameOver = false;
 					birdy->reset();
+					pipe->reset();
 				}
 				else {
 					birdy->flap();
