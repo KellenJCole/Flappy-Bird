@@ -25,6 +25,8 @@ Pipes::Pipes(sf::RenderWindow* w) {
 	for (int i = 0; i < 8; i++) {
 		pipes[i] = NULL;
 	}
+
+	collisionBoxes.resize(8);
 }
 
 void Pipes::draw() {
@@ -58,12 +60,20 @@ void Pipes::updatePipes(sf::Time dt) {
 				pipes[i] = new sf::Sprite(pipeUpSprite);
 				pipes[i + 1] = new sf::Sprite(pipeDownSprite);
 
+				collisionBoxes[i].setSize(sf::Vector2f(pipes[i]->getLocalBounds().width, pipes[i]->getLocalBounds().height));
+				collisionBoxes[i].setOrigin(pipes[i]->getOrigin());
+				collisionBoxes[i + 1].setSize(sf::Vector2f(pipes[i + 1]->getLocalBounds().width, pipes[i + 1]->getLocalBounds().height));
+				collisionBoxes[i + 1].setOrigin(pipes[i + 1]->getOrigin());
+
 				int pipeSpawnX = 400;
 				int pipeUpSpawnY = 300 + rand() % 250;
 				int pipeDownSpawnY = pipeUpSpawnY - 450;
 
 				pipes[i]->setPosition(pipeSpawnX, pipeUpSpawnY);
 				pipes[i + 1]->setPosition(pipeSpawnX, pipeDownSpawnY);
+
+				collisionBoxes[i].setPosition(pipeSpawnX, pipeUpSpawnY);
+				collisionBoxes[i + 1].setPosition(pipeSpawnX, pipeDownSpawnY);
 				break;
 			}
 		}
@@ -78,6 +88,7 @@ void Pipes::updatePipes(sf::Time dt) {
 			sf::Vector2f pipePosition = pipes[i]->getPosition();
 			pipePosition.x += distanceToMove;
 			pipes[i]->setPosition(pipePosition);
+			collisionBoxes[i].setPosition(pipePosition);
 		}
 	}
 }
