@@ -16,6 +16,9 @@ GameLoop::GameLoop() {
 	ground = new Base(&window);
 	birdy = new Bird(&window);
 	pipe = new Pipes(&window);
+
+	baseCollisionBox.setSize(sf::Vector2f(288, 112));
+	baseCollisionBox.setPosition(0, 400);
 }
 
 // Game Loop
