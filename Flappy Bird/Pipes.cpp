@@ -117,3 +117,7 @@ void Pipes::reset() {
 	pointCollisionBoxes.clear();
 	pointCollisionBoxes.resize(4);
 }
+
+std::vector<sf::RectangleShape> Pipes::getPointCollision() {
+	return pointCollisionBoxes;
+}
