@@ -32,4 +32,6 @@ private:
 	CollisionDetector cd;
 
 	bool gameOver;
+
+	int score;
 };
