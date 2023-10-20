@@ -20,6 +20,9 @@ GameLoop::GameLoop() {
 	baseCollisionBox.setSize(sf::Vector2f(288, 112));
 	baseCollisionBox.setPosition(0, 400);
 	gameOver = true;
+
+	readyTex.loadFromFile("Resources/message.png");
+	readySprite.setTexture(readyTex);
 }
 
 // Game Loop
