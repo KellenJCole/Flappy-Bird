@@ -11,6 +11,7 @@ public:
 private:
 	void updateAnimation();
 	int birdSet, animIndex;
+
 	sf::RenderWindow* gameWindow;
 	sf::Vector2f velocity;
 
