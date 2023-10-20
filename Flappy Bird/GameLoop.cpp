@@ -81,6 +81,10 @@ void GameLoop::render() {
 	pipe->draw();
 	ground->draw();
 
+	if (gameOver) {
+		window.draw(readySprite);
+	}
+
 
 	window.display();
 }
