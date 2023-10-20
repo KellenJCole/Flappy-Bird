@@ -19,7 +19,7 @@ GameLoop::GameLoop() {
 
 	baseCollisionBox.setSize(sf::Vector2f(288, 112));
 	baseCollisionBox.setPosition(0, 400);
-	gameOver = false;
+	gameOver = true;
 }
 
 // Game Loop
