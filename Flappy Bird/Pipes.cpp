@@ -22,7 +22,7 @@ Pipes::Pipes(sf::RenderWindow* w) {
 	pipeSpawnTimer = sf::Time::Zero;
 
 	for (int i = 0; i < 8; i++) {
-		pipes[i] == NULL;
+		pipes[i] = NULL;
 	}
 }
 

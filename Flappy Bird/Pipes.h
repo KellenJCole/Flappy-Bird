@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 class Pipes {
+public:
 	Pipes();
 	Pipes(sf::RenderWindow* w);
 	void updatePipes(sf::Time dt);

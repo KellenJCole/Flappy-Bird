@@ -15,6 +15,7 @@ GameLoop::GameLoop() {
 
 	ground = new Base(&window);
 	birdy = new Bird(&window);
+	pipe = new Pipes(&window);
 }
 
 // Game Loop
