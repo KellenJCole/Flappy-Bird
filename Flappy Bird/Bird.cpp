@@ -31,7 +31,10 @@ Bird::Bird(sf::RenderWindow* w) {
 }
 
 void Bird::update(sf::Time delta) {
-
+	float deltaDistance = delta.asSeconds() * velocity.y;
+	sf::Vector2f position = birdSprite.getPosition();
+	position.y += deltaDistance;
+	birdSprite.setPosition(position);
 }
 
 void Bird::draw() {
