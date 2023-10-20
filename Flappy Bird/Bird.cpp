@@ -22,4 +22,26 @@ Bird::Bird(sf::RenderWindow* w) {
 	birdSet = rand() % 3;
 
 	birdSprite.setTexture(birdTex[birdSet][1]);
+	sf::FloatRect birdBounds = birdSprite.getLocalBounds();
+	birdSprite.setOrigin(birdBounds.top + birdBounds.height / 2, birdBounds.left + birdBounds.width / 2);
+
+	birdSprite.setPosition(100, 200);
+
+	velocity.y = 300.f;
+}
+
+void Bird::update(sf::Time delta) {
+
+}
+
+void Bird::draw() {
+	gameWindow->draw(birdSprite);
+}
+
+void Bird::flap() {
+
+}
+
+void Bird::updateAnimation() {
+
 }
