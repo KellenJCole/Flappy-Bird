@@ -36,6 +36,8 @@ Bird::Bird(sf::RenderWindow* w) {
 
 	buffer.loadFromFile("Resources/wing.wav");
 	flapSound.setBuffer(buffer);
+	birdCollBox.setSize(sf::Vector2f(birdSprite.getLocalBounds().width, birdSprite.getLocalBounds().height));
+	birdCollBox.setOrigin(birdSprite.getOrigin());
 }
 
 void Bird::update(sf::Time delta) {
@@ -43,6 +45,7 @@ void Bird::update(sf::Time delta) {
 	sf::Vector2f position = birdSprite.getPosition();
 	position.y += deltaDistance;
 	birdSprite.setPosition(position);
+	birdCollBox.setPosition(birdSprite.getPosition());
 	
 	velocity.y += 3.5f;
 
