@@ -29,6 +29,12 @@ GameLoop::GameLoop() {
 	readySprite.setPosition(144, 200);
 
 	score = 0;
+
+	scoreBuffer.loadFromFile("Resources/point.wav");
+	collisionBuffer.loadFromFile("Resources/hit.wav");
+
+	scoreSound.setBuffer(scoreBuffer);
+	collisionSound.setBuffer(collisionBuffer);
 }
 
 // Game Loop
