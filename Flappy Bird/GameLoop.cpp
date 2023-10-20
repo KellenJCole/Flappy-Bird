@@ -53,6 +53,7 @@ void GameLoop::processEvents() {
 			if (event.key.code == sf::Keyboard::Space || event.key.code == sf::Mouse::Left) {
 				if (gameOver) {
 					gameOver = false;
+					birdy->reset();
 				}
 				else {
 					birdy->flap();
