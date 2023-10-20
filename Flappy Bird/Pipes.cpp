@@ -104,4 +104,5 @@ void Pipes::reset() {
 
 	collisionBoxes.clear();
 	pipeSpawnTimer = sf::Time::Zero;
+	collisionBoxes.resize(8);
 }
