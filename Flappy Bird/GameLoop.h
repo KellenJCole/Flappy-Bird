@@ -19,9 +19,11 @@ private:
 	sf::Texture bgTexDay;
 	sf::Texture bgTexNight;
 	sf::Texture readyTex;
-	
+	sf::Texture gameOverTex;
+
 	sf::Sprite bgSprite;
 	sf::Sprite readySprite;
+	sf::Sprite gameOverSprite;
 
 	sf::SoundBuffer scoreBuffer;
 	sf::SoundBuffer collisionBuffer;
