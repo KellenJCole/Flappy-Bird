@@ -7,7 +7,7 @@ class Pipes {
 	void updatePipes(sf::Time dt);
 	void draw();
 private:
-	sf::RenderWindow* w;
+	sf::RenderWindow* gameWindow;
 	sf::Texture pipeUpTex, pipeDownTex;
 	sf::Sprite pipeUpSprite, pipeDownSprite;
 	sf::Time pipeSpawnTimer;

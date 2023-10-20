@@ -149,6 +149,7 @@
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pipes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
