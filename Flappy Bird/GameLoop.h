@@ -1,6 +1,6 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Base.h"
 
 class GameLoop {
 public:
@@ -17,4 +17,6 @@ private:
 	sf::Texture bgTexNight;
 	
 	sf::Sprite bgSprite;
+
+	Base* ground;
 };
