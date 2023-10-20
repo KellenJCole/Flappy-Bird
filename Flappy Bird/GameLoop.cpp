@@ -26,7 +26,7 @@ GameLoop::GameLoop() {
 
 	sf::FloatRect readySpriteBounds = readySprite.getLocalBounds();
 	readySprite.setOrigin(readySpriteBounds.left + readySpriteBounds.width / 2, readySpriteBounds.top + readySpriteBounds.height / 2);
-	readySprite.setPosition(144, 256);
+	readySprite.setPosition(144, 200);
 }
 
 // Game Loop
