@@ -85,6 +85,12 @@ void GameLoop::update(sf::Time delta) {
 				gameOver = true;
 			}
 		}
+
+		for (auto b : pipe->getPointCollision()) { // If bird scores
+			if (cd.isColliding(birdy->getCollision(), b)) {
+				score += 1;
+			}
+		}
 	}
 }
 

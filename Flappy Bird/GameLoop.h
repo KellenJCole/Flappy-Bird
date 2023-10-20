@@ -23,6 +23,11 @@ private:
 	sf::Sprite bgSprite;
 	sf::Sprite readySprite;
 
+	sf::SoundBuffer scoreBuffer;
+	sf::SoundBuffer collisionBuffer;
+	sf::Sound scoreSound;
+	sf::Sound collisionSound;
+
 	Base* ground;
 	Bird* birdy;
 	Pipes* pipe;
