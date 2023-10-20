@@ -10,4 +10,7 @@ private:
 	void processEvents();
 	void update(sf::Time delta);
 	void render();
+
+	sf::RenderWindow window;
+
 };
