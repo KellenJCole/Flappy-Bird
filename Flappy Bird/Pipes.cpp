@@ -5,6 +5,7 @@ Pipes::Pipes() {
 }
 
 Pipes::Pipes(sf::RenderWindow* w) {
+	srand(time(NULL));
 	gameWindow = w;
 
 	pipeUpTex.loadFromFile("Resources/pipe-up.png");
@@ -37,7 +38,19 @@ void Pipes::draw() {
 void Pipes::updatePipes(sf::Time dt) {
 	pipeSpawnTimer += dt;
 
-	if (dt > sf::milliseconds(500)) { // Spawn pipe
+	// Despawn pipes out of view
+
+	for (int i = 0; i < 8; i += 2) {
+		if (pipes[i] != NULL) {
+			sf::Vector2f pipePosition = pipes[i]->getPosition();
+			if (pipePosition.x < -50) {
+				pipes[i] = NULL;
+				pipes[i + 1] = NULL;
+			}
+		}
+	}
+
+	if (pipeSpawnTimer > sf::milliseconds(2000)) { // Spawn pipe
 		pipeSpawnTimer = sf::Time::Zero;
 
 		for (int i = 0; i < 8; i += 2) {
@@ -46,12 +59,25 @@ void Pipes::updatePipes(sf::Time dt) {
 				pipes[i + 1] = new sf::Sprite(pipeDownSprite);
 
 				int pipeSpawnX = 400;
-				int pipeUpSpawnY = 200 + rand() % 100;
-				int pipeDownSpawnY = pipeUpSpawnY - 150;
+				int pipeUpSpawnY = 300 + rand() % 250;
+				int pipeDownSpawnY = pipeUpSpawnY - 450;
 
 				pipes[i]->setPosition(pipeSpawnX, pipeUpSpawnY);
 				pipes[i + 1]->setPosition(pipeSpawnX, pipeDownSpawnY);
+				break;
 			}
+		}
+	}
+
+	// Make pipes move
+	float scrollSpeed = -100.f;
+	float distanceToMove = scrollSpeed * dt.asSeconds();
+
+	for (int i = 0; i < 8; i++) {
+		if (pipes[i] != NULL) {
+			sf::Vector2f pipePosition = pipes[i]->getPosition();
+			pipePosition.x += distanceToMove;
+			pipes[i]->setPosition(pipePosition);
 		}
 	}
 }
