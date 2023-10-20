@@ -83,17 +83,20 @@ void GameLoop::update(sf::Time delta) {
 		// Check for collisions
 
 		if (cd.isColliding(birdy->getCollision(), baseCollisionBox)) { // If bird hits ground
+			collisionSound.play();
 			gameOver = true;
 		}
 
 		for (auto a : pipe->getCollision()) { // If bird hits a pipe
 			if (cd.isColliding(birdy->getCollision(), a)) {
+				collisionSound.play();
 				gameOver = true;
 			}
 		}
 
 		for (auto b : pipe->getPointCollision()) { // If bird scores
 			if (cd.isColliding(birdy->getCollision(), b)) {
+				scoreSound.play();
 				score += 1;
 			}
 		}
