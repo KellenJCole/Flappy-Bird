@@ -12,6 +12,8 @@ GameLoop::GameLoop() {
 	window.create(sf::VideoMode(288, 512), "Flappy Bird");
 
 	window.display();
+
+	ground = new Base(&window);
 }
 
 // Game Loop
@@ -39,7 +41,7 @@ void GameLoop::processEvents() {
 
 // Update game objects
 void GameLoop::update(sf::Time delta) {
-
+	ground->update(delta);
 }
 
 // Draw to window
@@ -47,6 +49,7 @@ void GameLoop::render() {
 	window.clear();
 
 	window.draw(bgSprite);
+	ground->draw();
 
 	window.display();
 }
