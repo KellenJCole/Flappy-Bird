@@ -24,7 +24,7 @@ Bird::Bird(sf::RenderWindow* w) {
 	birdSprite.setTexture(birdTex[birdSet][1]);
 	animIndex = 1;
 	sf::FloatRect birdBounds = birdSprite.getLocalBounds();
-	birdSprite.setOrigin(birdBounds.top + birdBounds.height / 2, birdBounds.left + birdBounds.width / 2);
+	birdSprite.setOrigin(birdBounds.left + birdBounds.width / 2, birdBounds.top + birdBounds.height / 2);
 
 	birdSprite.setPosition(80, 200);
 
