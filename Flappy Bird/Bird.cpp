@@ -25,9 +25,9 @@ Bird::Bird(sf::RenderWindow* w) {
 	sf::FloatRect birdBounds = birdSprite.getLocalBounds();
 	birdSprite.setOrigin(birdBounds.top + birdBounds.height / 2, birdBounds.left + birdBounds.width / 2);
 
-	birdSprite.setPosition(100, 200);
+	birdSprite.setPosition(80, 200);
 
-	velocity.y = 300.f;
+	velocity.y = 250.f;
 }
 
 void Bird::update(sf::Time delta) {
@@ -35,6 +35,8 @@ void Bird::update(sf::Time delta) {
 	sf::Vector2f position = birdSprite.getPosition();
 	position.y += deltaDistance;
 	birdSprite.setPosition(position);
+	
+	velocity.y += .06f;
 }
 
 void Bird::draw() {
@@ -42,7 +44,7 @@ void Bird::draw() {
 }
 
 void Bird::flap() {
-
+	velocity.y = -250.f;
 }
 
 void Bird::updateAnimation() {
