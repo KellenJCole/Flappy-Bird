@@ -28,4 +28,6 @@ private:
 	sf::RectangleShape baseCollisionBox;
 
 	CollisionDetector cd;
+
+	bool gameOver;
 };
