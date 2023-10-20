@@ -17,6 +17,4 @@ private:
 
 	sf::Texture birdTex[3][3];
 	sf::Sprite birdSprite;
-
-	sf::Clock animClock;
 };
