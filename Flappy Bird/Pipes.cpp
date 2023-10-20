@@ -81,3 +81,7 @@ void Pipes::updatePipes(sf::Time dt) {
 		}
 	}
 }
+
+std::vector<sf::RectangleShape> Pipes::getCollision() {
+	return collisionBoxes;
+}
