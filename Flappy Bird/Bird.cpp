@@ -100,3 +100,7 @@ void Bird::updateAnimation(sf::Time delta) {
 		}
 	}
 }
+
+sf::RectangleShape Bird::getCollision() {
+	return birdCollBox;
+}
