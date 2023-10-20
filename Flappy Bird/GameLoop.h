@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Audio.hpp>
 #include "Base.h"
+#include "Bird.h"
 
 class GameLoop {
 public:
@@ -19,4 +20,5 @@ private:
 	sf::Sprite bgSprite;
 
 	Base* ground;
+	Bird* birdy;
 };
