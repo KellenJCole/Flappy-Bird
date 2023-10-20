@@ -41,7 +41,7 @@ void Bird::update(sf::Time delta) {
 	position.y += deltaDistance;
 	birdSprite.setPosition(position);
 	
-	velocity.y += .1f;
+	velocity.y += 3.5f;
 
 	updateAnimation(delta);
 }
