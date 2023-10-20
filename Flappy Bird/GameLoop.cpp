@@ -49,9 +49,14 @@ void GameLoop::processEvents() {
 		if (event.type == sf::Event::Closed) {
 			window.close();
 		}
-		if (event.type == sf::Event::KeyPressed) {
-			if (event.key.code == sf::Keyboard::Space) {
-				birdy->flap();
+		if (event.type == sf::Event::KeyPressed || event.type == sf::Event::MouseButtonPressed) {
+			if (event.key.code == sf::Keyboard::Space || event.key.code == sf::Mouse::Left) {
+				if (gameOver) {
+					gameOver = false;
+				}
+				else {
+					birdy->flap();
+				}
 			}
 		}
 	}
@@ -67,12 +72,12 @@ void GameLoop::update(sf::Time delta) {
 		// Check for collisions
 
 		if (cd.isColliding(birdy->getCollision(), baseCollisionBox)) { // If bird hits ground
-
+			gameOver = true;
 		}
 
 		for (auto a : pipe->getCollision()) { // If bird hits a pipe
 			if (cd.isColliding(birdy->getCollision(), a)) {
-
+				gameOver = true;
 			}
 		}
 	}
