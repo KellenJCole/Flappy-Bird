@@ -43,6 +43,7 @@ void GameLoop::processEvents() {
 // Update game objects
 void GameLoop::update(sf::Time delta) {
 	ground->update(delta);
+	birdy->update(delta);
 }
 
 // Draw to window
