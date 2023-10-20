@@ -46,5 +46,7 @@ void GameLoop::update(sf::Time delta) {
 void GameLoop::render() {
 	window.clear();
 
+	window.draw(bgSprite);
+
 	window.display();
 }
