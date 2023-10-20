@@ -1,11 +1,13 @@
 #include "GameLoop.h"
 
+// Constructor
 GameLoop::GameLoop() {
 	window.create(sf::VideoMode(288, 512), "Flappy Bird");
 
 	window.display();
 }
 
+// Game Loop
 void GameLoop::run() {
 	sf::Clock gameClock;
 	sf::Time dt;
@@ -17,14 +19,17 @@ void GameLoop::run() {
 	}
 }
 
+// Process user input
 void GameLoop::processEvents() {
 
 }
 
+// Update game objects
 void GameLoop::update(sf::Time delta) {
 
 }
 
+// Draw to window
 void GameLoop::render() {
 
 }
