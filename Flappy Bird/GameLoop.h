@@ -25,5 +25,7 @@ private:
 	Bird* birdy;
 	Pipes* pipe;
 
+	sf::RectangleShape baseCollisionBox;
+
 	CollisionDetector cd;
 };
