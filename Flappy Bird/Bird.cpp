@@ -108,5 +108,5 @@ sf::RectangleShape Bird::getCollision() {
 void Bird::reset() {
 	birdSprite.setPosition(80, 200);
 	birdSprite.setRotation(0);
-	birdCollBox.setPosition(birdSprite.getPosition());
+	birdSprite.setTexture(birdTex[birdSet][1]);
 }
