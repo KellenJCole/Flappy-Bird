@@ -35,6 +35,8 @@ GameLoop::GameLoop() {
 
 	scoreSound.setBuffer(scoreBuffer);
 	collisionSound.setBuffer(collisionBuffer);
+
+	timeSinceScored = sf::Time::Zero;
 }
 
 // Game Loop
@@ -75,6 +77,8 @@ void GameLoop::processEvents() {
 
 // Update game objects
 void GameLoop::update(sf::Time delta) {
+	timeSinceScored += delta;
+
 	if (!gameOver) {
 		ground->update(delta);
 		birdy->update(delta);
@@ -96,8 +100,11 @@ void GameLoop::update(sf::Time delta) {
 
 		for (auto b : pipe->getPointCollision()) { // If bird scores
 			if (cd.isColliding(birdy->getCollision(), b)) {
-				scoreSound.play();
-				score += 1;
+				if (timeSinceScored > sf::seconds(1)) {
+					timeSinceScored = sf::Time::Zero;
+					scoreSound.play();
+					score += 1;
+				}
 			}
 		}
 	}
