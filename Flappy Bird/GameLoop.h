@@ -39,4 +39,5 @@ private:
 	bool gameOver;
 
 	int score;
+	sf::Time timeSinceScored;
 };
