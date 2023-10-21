@@ -16,6 +16,7 @@ GameLoop::GameLoop() {
 	ground = new Base(&window);
 	birdy = new Bird(&window);
 	pipe = new Pipes(&window);
+	scoreObj = new Score(&window);
 
 	baseCollisionBox.setSize(sf::Vector2f(288, 112));
 	baseCollisionBox.setPosition(0, 400);
@@ -38,6 +39,7 @@ GameLoop::GameLoop() {
 	gameOverSprite.setPosition(144, 200);
 
 	score = 0;
+	scoreObj->setScore(score);
 
 	scoreBuffer.loadFromFile("Resources/point.wav");
 	collisionBuffer.loadFromFile("Resources/hit.wav");
@@ -72,6 +74,7 @@ void GameLoop::processEvents() {
 			if (event.key.code == sf::Keyboard::Space || event.key.code == sf::Mouse::Left) {
 				if (gameOver && !gameOverScreen) {
 					score = 0;
+					scoreObj->setScore(0);
 					gameOver = false;
 				}
 				else if (gameOverScreen) {
@@ -118,6 +121,7 @@ void GameLoop::update(sf::Time delta) {
 					timeSinceScored = sf::Time::Zero;
 					scoreSound.play();
 					score += 1;
+					scoreObj->setScore(score);
 				}
 			}
 		}
@@ -132,6 +136,10 @@ void GameLoop::render() {
 	birdy->draw();
 	pipe->draw();
 	ground->draw();
+
+	if (!gameOver || gameOverScreen) {
+		scoreObj->draw();
+	}
 
 	if (gameOver && !gameOverScreen) {
 		window.draw(readySprite);

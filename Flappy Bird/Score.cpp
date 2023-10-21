@@ -16,11 +16,12 @@ void Score::setScore(int s) {
 
 	if (s <= 9) {
 		scoreSprites.resize(1);
+		scoreSprites[0] = new sf::Sprite;
 		sf::Sprite onesSprite;
 		onesSprite.setTexture(digitTex[s]);
 		sf::FloatRect onesBounds = onesSprite.getLocalBounds();
 		onesSprite.setOrigin(onesBounds.left + onesBounds.width / 2, onesBounds.top + onesBounds.height / 2);
-		scoreSprites[0] = &onesSprite;
+		*scoreSprites[0] = onesSprite;
 	}
 	else {
 		bool makeNewDigitsPlace = true;
@@ -38,10 +39,10 @@ void Score::setScore(int s) {
 }
 
 void Score::draw() {
-	int startX = 144 - (scoreSprites.size() * scoreSprites[0]->getLocalBounds().width / 2);
+	int startX = 153 - (scoreSprites.size() * scoreSprites[0]->getLocalBounds().width / 2);
 
-	for (auto s : scoreSprites) {
-		s->setPosition(sf::Vector2f(startX, 100));
-		gameWindow->draw(*s);
+	for (int i = 0; i < scoreSprites.size(); i++) {
+		scoreSprites[i]->setPosition(sf::Vector2f(startX, 100));
+		gameWindow->draw(*scoreSprites[i]);
 	}
 }
