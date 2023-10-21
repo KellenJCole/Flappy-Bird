@@ -4,6 +4,7 @@
 #include "Bird.h"
 #include "Pipes.h"
 #include "CollisionDetector.h"
+#include "Score.h"
 
 class GameLoop {
 public:
@@ -33,6 +34,7 @@ private:
 	Base* ground;
 	Bird* birdy;
 	Pipes* pipe;
+	Score* scoreObj;
 
 	sf::RectangleShape baseCollisionBox;
 
