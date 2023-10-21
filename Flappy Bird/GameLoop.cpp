@@ -11,7 +11,7 @@ GameLoop::GameLoop() {
 
 	window.create(sf::VideoMode(288, 512), "Flappy Bird");
 
-	window.setFramerateLimit(280.f);
+	window.setVerticalSyncEnabled(true);
 
 	window.display();
 
