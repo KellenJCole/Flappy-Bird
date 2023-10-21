@@ -11,6 +11,8 @@ GameLoop::GameLoop() {
 
 	window.create(sf::VideoMode(288, 512), "Flappy Bird");
 
+	window.setFramerateLimit(280.f);
+
 	window.display();
 
 	ground = new Base(&window);
