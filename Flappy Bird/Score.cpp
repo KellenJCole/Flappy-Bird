@@ -55,7 +55,7 @@ void Score::draw() {
 	int startX = 153 - (scoreSprites.size() * scoreSprites[0]->getLocalBounds().width / 2);
 
 	for (int i = 0; i < scoreSprites.size(); i++) {
-		scoreSprites[i]->setPosition(sf::Vector2f(startX + (i * 30), 100));
+		scoreSprites[i]->setPosition(sf::Vector2f(startX + (i * 20), 100));
 		gameWindow->draw(*scoreSprites[i]);
 	}
 }

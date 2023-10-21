@@ -57,7 +57,7 @@ void Bird::draw() {
 }
 
 void Bird::flap() {
-	velocity.y = -400.f;
+	velocity.y = -370.f;
 	flapSound.play();
 }
 
